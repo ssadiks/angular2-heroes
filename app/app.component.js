@@ -11,7 +11,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var AppComponent;
+    var AppComponent, HEROES;
     return {
         setters:[
             function (core_1_1) {
@@ -21,25 +21,34 @@ System.register(['angular2/core'], function(exports_1, context_1) {
             AppComponent = (function () {
                 function AppComponent() {
                     this.title = 'Tour of Heroes';
-                    this.hero = {
-                        id: 1,
-                        name: 'Lionel Messi'
-                    };
+                    this.heroes = HEROES;
                 }
+                AppComponent.prototype.onSelect = function (hero) {
+                    this.selectedHero = hero;
+                };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: '<h1>{{title}}</h1>' +
-                            '<h2>{{hero.name}} details!</h2>' +
-                            '<div><label>id: </label>{{hero.id}}</div>' +
-                            '<div><label>name: </label></div>' +
-                            '<div><input [(ngModel)]="hero.name" placeholder="name"></div>' +
-                            '' }), 
+                        templateUrl: 'app/app.html',
+                        styleUrls: ['app/heroes.css']
+                    }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
                 return AppComponent;
             }());
             exports_1("AppComponent", AppComponent);
+            HEROES = [
+                { "id": 11, "name": "Mr. Nice" },
+                { "id": 12, "name": "Narco" },
+                { "id": 13, "name": "Bombasto" },
+                { "id": 14, "name": "Celeritas" },
+                { "id": 15, "name": "Magneta" },
+                { "id": 16, "name": "RubberMan" },
+                { "id": 17, "name": "Dynama" },
+                { "id": 18, "name": "Dr IQ" },
+                { "id": 19, "name": "Magma" },
+                { "id": 20, "name": "Tornado" }
+            ];
         }
     }
 });
