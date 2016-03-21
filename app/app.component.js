@@ -29,6 +29,12 @@ System.register(['angular2/core', './hero-detail.component', './hero.service'], 
                     this._heroService = _heroService;
                     this.title = 'Tour of Heroes';
                 }
+                AppComponent.prototype.getHeroes = function () {
+                    this.heroes = this._heroService.getHeroes();
+                };
+                AppComponent.prototype.ngOnInit = function () {
+                    this.getHeroes();
+                };
                 AppComponent.prototype.onSelect = function (hero) {
                     this.selectedHero = hero;
                 };
